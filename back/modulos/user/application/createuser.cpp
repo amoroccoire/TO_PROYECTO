@@ -2,12 +2,14 @@
 
 CreateUser::CreateUser(IUserRepository* userRepository) {
     this->userRepository = userRepository;
+    this->containUser = new ContainUser(userRepository);
 }
 
-User* CreateUser::execute(const User *user) {
+User* CreateUser::execute(User *user) {
     //hace algo
-    User* u = userRepository->createUser(user);
-    if (u)
+    if (!containUser->execute(user)) {
+        User* u = userRepository->createUser(user);
         return u;
+    }
     return nullptr;
 }

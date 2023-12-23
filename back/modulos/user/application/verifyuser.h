@@ -7,7 +7,7 @@ class VerifyUser {
 public:
     VerifyUser(IUserRepository*);
 
-    User* execute(const User*);
+    User* execute(User*);
 
 private:
     IUserRepository* userRepository;

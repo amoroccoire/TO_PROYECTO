@@ -6,7 +6,7 @@
 class ContainUser {
 public:
     ContainUser(IUserRepository*);
-    bool execute(const User*);
+    bool execute(User*);
 
 private:
     IUserRepository* userRepository;

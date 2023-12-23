@@ -4,7 +4,7 @@ ContainUser::ContainUser(IUserRepository* userRepository) {
     this->userRepository = userRepository;
 }
 
-bool ContainUser::execute(const User* user) {
+bool ContainUser::execute(User* user) {
     //hace algo
     return userRepository->containUser(user);
 }
