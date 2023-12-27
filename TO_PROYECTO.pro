@@ -15,6 +15,8 @@ SOURCES += \
     back/modulos/user/application/verifyuser.cpp \
     back/modulos/user/domain/user.cpp \
     back/modulos/user/infraestructure/userfilerepository.cpp \
+    front/user/login.cpp \
+    front/user/signin.cpp \
     main.cpp \
     mainwindow.cpp \
     shared/BST/bst.cpp \
@@ -31,6 +33,8 @@ HEADERS += \
     back/modulos/user/domain/IUserRepository.h \
     back/modulos/user/domain/user.h \
     back/modulos/user/infraestructure/userfilerepository.h \
+    front/user/login.h \
+    front/user/signin.h \
     mainwindow.h \
     shared/BST/bst.h \
     shared/BST/nodobst.h \
@@ -38,6 +42,9 @@ HEADERS += \
     shared/DoubleLinkedList/nododoublelist.h
 
 FORMS += \
+    front/GUI/form.ui \
+    front/GUI/login.ui \
+    front/GUI/signin.ui \
     mainwindow.ui
 
 # Default rules for deployment.
