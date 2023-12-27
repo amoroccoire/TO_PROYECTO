@@ -4,7 +4,7 @@
 #include "nododoublelist.h"
 #include "../BST/bst.h"
 
-template <typename T>
+template <typename T, typename V>
 class DoubleLinkedList {
 public:
     DoubleLinkedList();

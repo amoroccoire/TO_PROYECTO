@@ -1,26 +1,29 @@
 #ifndef NODODOUBLELIST_H
 #define NODODOUBLELIST_H
 
-template <typename T>
+template <typename T, typename V>
 class NodoDoubleList {
 public:
     NodoDoubleList();
-    NodoDoubleList(T dato);
+    NodoDoubleList(T, V);
 
-    void setDato(T dato);
-    void setNext(NodoDoubleList<T>*);
-    void setPrev(NodoDoubleList<T>*);
+    void setKey(T);
+    void setValue(V);
+    void setNext(NodoDoubleList<T, V>*);
+    void setPrev(NodoDoubleList<T, V>*);
 
-    T getDato();
-    NodoDoubleList<T>* getNext();
-    NodoDoubleList<T>* getPrev();
+    T getKey();
+    V getValue(T);
+    NodoDoubleList<T, V>* getNext();
+    NodoDoubleList<T, V>* getPrev();
 
     int compareTo(T);
 
 private:
-    NodoDoubleList<T>* next;
-    NodoDoubleList<T>* prev;
-    T dato;
+    NodoDoubleList<T, V>* next;
+    NodoDoubleList<T, V>* prev;
+    T key;
+    V value;
 };
 
 #endif // NODODOUBLELIST_H

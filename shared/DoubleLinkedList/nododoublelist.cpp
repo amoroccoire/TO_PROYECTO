@@ -1,52 +1,60 @@
 #include "nododoublelist.h"
 
-template <class T>
-NodoDoubleList<T>::NodoDoubleList() {
-    dato = nullptr;
+
+template <class T, class V>
+NodoDoubleList<T, V>::NodoDoubleList() {
+    key = nullptr;
+    value = nullptr;
 }
 
-template <class T>
-NodoDoubleList<T>::NodoDoubleList(T dato) {
-    this->dato = dato;
+template <class T, class V>
+NodoDoubleList<T, V>::NodoDoubleList(T key, V value) {
+    this->key = key;
+    this->value = value;
 }
 
-template <class T>
-void NodoDoubleList<T>::setDato(T dato) {
-    this->dato = dato;
+template <class T, class V>
+void NodoDoubleList<T, V>::setKey(T key) {
+    this->key = key;
 }
 
+template <class T, class V>
+void NodoDoubleList<T, V>::setValue(V value) {
+    this->value = value;
+}
 
-template <class T>
-void NodoDoubleList<T>::setNext(NodoDoubleList<T>* next) {
+template <class T, class V>
+void NodoDoubleList<T, V>::setNext(NodoDoubleList<T, V>* next) {
     this->next = next;
 }
 
-template <class T>
-void NodoDoubleList<T>::setPrev(NodoDoubleList<T>* prev) {
+template <class T, class V>
+void NodoDoubleList<T>::setPrev(NodoDoubleList<T, V>* prev) {
     this->prev = prev;
 }
 
-template <class T>
-T NodoDoubleList<T>::getDato(){
-    return this->dato;
+template <class T, class V>
+V NodoDoubleList<T, V>::getValue(T key){
+    if (this->key == key)
+        return this->value;
+    return nullptr;
 }
 
-template <class T>
-NodoDoubleList<T>* NodoDoubleList<T>::getNext(){
+template <class T, class V>
+NodoDoubleList<T, V>* NodoDoubleList<T, V>::getNext(){
     return this->next;
 }
 
-template <class T>
-NodoDoubleList<T>* NodoDoubleList<T>::getPrev() {
+template <class T, class V>
+NodoDoubleList<T, V>* NodoDoubleList<T, V>::getPrev() {
     return this->prev;
 }
 
-template <class T>
-int NodoDoubleList<T>::compareTo(T dato) {
-    if (this->dato == dato)
+template <class T, class V>
+int NodoDoubleList<T, V>::compareTo(T key) {
+    if (this->key == key)
         return 0;
-    else if(this->dato < dato)
+    else if(this->key < key)
         return -1;
     return 1;
 }
-
