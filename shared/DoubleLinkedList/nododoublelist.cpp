@@ -29,7 +29,7 @@ void NodoDoubleList<T, V>::setNext(NodoDoubleList<T, V>* next) {
 }
 
 template <class T, class V>
-void NodoDoubleList<T>::setPrev(NodoDoubleList<T, V>* prev) {
+void NodoDoubleList<T, V>::setPrev(NodoDoubleList<T, V>* prev) {
     this->prev = prev;
 }
 

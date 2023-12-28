@@ -9,22 +9,20 @@ class DoubleLinkedList {
 public:
     DoubleLinkedList();
 
-    void insertForward(T);
-    void insertLast(T);
-    void insertAfterTo(T, T);
+    void insertForward(T, V);
+    void insertLast(T, V);
+    void insertAfterTo(T, T, V);
 
-    NodoDoubleList<T>* deleteForward();
-    NodoDoubleList<T>* deleteLast();
-    NodoDoubleList<T>* deleteTo(T);
+    NodoDoubleList<T, V>* deleteForward();
+    NodoDoubleList<T, V>* deleteLast();
+    NodoDoubleList<T, V>* deleteTo(T);
 
-    NodoDoubleList<T>* search(T dato);
-
-    BST<T>* toBST();
+    NodoDoubleList<T, V>* search(T dato);
 
     int getSize();
 private:
-    NodoDoubleList<T>* head;
-    NodoDoubleList<T>* last;
+    NodoDoubleList<T, V>* head;
+    NodoDoubleList<T, V>* last;
     int contador;
 };
 

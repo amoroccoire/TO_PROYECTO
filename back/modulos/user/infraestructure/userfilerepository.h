@@ -19,7 +19,7 @@ private:
     std::string file;
     std::string rutaBD;
     FileRepository* fileRepository;
-    DoubleLinkedList<User*>* lista;
+    DoubleLinkedList<QString, User*>* lista;
 
     void toDoubleList();
 };

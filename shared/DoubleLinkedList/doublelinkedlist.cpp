@@ -2,7 +2,7 @@
 #include "cmath"
 
 template <class T, class V>
-DoubleLinkedList<T>::DoubleLinkedList() {
+DoubleLinkedList<T, V>::DoubleLinkedList() {
     head = nullptr;
     last = nullptr;
     contador = 0;
@@ -47,8 +47,7 @@ void DoubleLinkedList<T, V>::insertAfterTo(T exist, T key, V value) {
 
     NodoDoubleList<T, V>* nodo = search(exist);
     if (nodo == last)
-        insertLast(dato);
-
+        insertLast(key, value);
     else if (nodo){
         nodo->getNext()->setPrev(newNodo);
         newNodo->setNext(nodo->getNext());
@@ -126,18 +125,4 @@ NodoDoubleList<T, V>* DoubleLinkedList<T, V>::search(T key) {
 template <class T, class V>
 int DoubleLinkedList<T, V>::getSize() {
     return contador;
-}
-
-template <class T, class V>
-BST<T>* DoubleLinkedList<T, V>::toBST() {
-    BST<T>* bst = new BST<T>();
-
-    NodoDoubleList<T, V>* aux = head;
-
-    while (aux != nullptr){
-        bst->insert(aux->getDato());
-        aux = aux->getNext();
-    }
-
-    return bst;
 }

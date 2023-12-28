@@ -8,7 +8,7 @@
 #include <QString>
 
 UserFileRepository::UserFileRepository(FileRepository* fileRepository) {
-    this->lista = new DoubleLinkedList<User*>();
+    this->lista = new DoubleLinkedList<QString, User*>();
     this->fileRepository = fileRepository;
     toDoubleList();
 }
@@ -23,7 +23,7 @@ void UserFileRepository::toDoubleList() {
         user->setId(usuario["id"].toInt());
         user->setEmail(usuario["email"].toString().toStdString());
         user->setPas(usuario["password"].toString().toStdString());
-        lista->insertLast(user);
+        lista->insertLast(QString::fromStdString(user->getPas()), user);
     }
 }
 
@@ -50,8 +50,8 @@ User* UserFileRepository::createUser(User *user) {
 }
 
 bool UserFileRepository::containUser(User *user) {
+    User* rpta = lista->search(QString::fromStdString(user->getPas()))->getValue(QString::fromStdString(user->getPas()));
 
-    User* rpta = lista->search(user)->getDato();
     if(rpta){
         return true;
     }
@@ -59,8 +59,7 @@ bool UserFileRepository::containUser(User *user) {
 }
 
 User* UserFileRepository::verifyUser(User *user) {
-
-    User* rpta = lista->search(user)->getDato();
+    User* rpta = lista->search(QString::fromStdString(user->getPas()))->getValue(QString::fromStdString(user->getPas()));
     if(rpta)
         return rpta;
     return nullptr;
