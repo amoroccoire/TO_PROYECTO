@@ -17,6 +17,8 @@ set(PROJECT_SOURCES
         src/GUI/mainwindow.cpp
         includes/GUI/mainwindow.h
         ui/GUI/mainwindow.ui
+        src/fileHandling/CSVHandler.cpp
+        src/model/RegistroCovid.cpp
 )
 #set(GUI_SOURCES
 #    src/GUI/FormularioAutenticacion.cpp
@@ -47,6 +49,12 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         data/exceldeprueba.csv
         src/dataStructures/avl_tree.cpp
         includes/dataStructures/avl_tree.h
+        src/logic/fileHandler.cpp
+        includes/logic/fileHandler.h
+        src/fileHandling/CSVHandler.cpp
+        includes/fileHandling/CSVHandler.h
+        src/model/registroCovid.cpp
+        includes/model/registroCovid.h
 
 #        src/dataStructures/test_avl_tree.cpp
 
