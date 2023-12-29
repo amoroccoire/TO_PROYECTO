@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
     windowSearch m;
     WindowUpload r;
     //MainWindow w;
-    //m.show();
-    r.show();
+    m.show();
+    //r.show();
     return a.exec();
 }

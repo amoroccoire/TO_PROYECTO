@@ -15,6 +15,10 @@ public:
     explicit windowSearch(QWidget *parent = nullptr);
     ~windowSearch();
 
+private slots:
+    void on_importarCSV_clicked();
+    void onSuccessFile();
+
 private:
     Ui::windowSearch *ui;
 

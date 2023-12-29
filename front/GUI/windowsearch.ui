@@ -105,7 +105,7 @@
     <enum>QAbstractItemView::SelectRows</enum>
    </property>
    <property name="rowCount">
-    <number>5</number>
+    <number>0</number>
    </property>
    <property name="columnCount">
     <number>15</number>
@@ -137,11 +137,6 @@
    <attribute name="verticalHeaderStretchLastSection">
     <bool>false</bool>
    </attribute>
-   <row/>
-   <row/>
-   <row/>
-   <row/>
-   <row/>
    <column>
     <property name="text">
      <string>UUID</string>
@@ -221,7 +216,7 @@
   <widget class="QPushButton" name="exportarCSV">
    <property name="geometry">
     <rect>
-     <x>600</x>
+     <x>1090</x>
      <y>150</y>
      <width>141</width>
      <height>41</height>
@@ -237,7 +232,7 @@
     <string>EXPORTAR A CSV</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="labelFiltradores">
    <property name="geometry">
     <rect>
      <x>40</x>
@@ -299,7 +294,7 @@
      </spacer>
     </item>
     <item>
-     <widget class="QComboBox" name="comboBox">
+     <widget class="QComboBox" name="opSexo">
       <item>
        <property name="text">
         <string>TODOS</string>
@@ -330,7 +325,7 @@
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout_2">
     <item>
-     <widget class="QLabel" name="label_3">
+     <widget class="QLabel" name="labelEdad">
       <property name="font">
        <font>
         <family>URW Gothic</family>
@@ -361,10 +356,10 @@
     <item>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
-       <widget class="QLineEdit" name="cuadroBusqueda_4"/>
+       <widget class="QLineEdit" name="param1"/>
       </item>
       <item>
-       <widget class="QLineEdit" name="cuadroBusqueda_3"/>
+       <widget class="QLineEdit" name="param2"/>
       </item>
      </layout>
     </item>
@@ -381,7 +376,7 @@
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout_3">
     <item>
-     <widget class="QLabel" name="label_4">
+     <widget class="QLabel" name="labelTMuestra">
       <property name="font">
        <font>
         <family>URW Gothic</family>
@@ -410,7 +405,7 @@
      </spacer>
     </item>
     <item>
-     <widget class="QComboBox" name="comboBox_2">
+     <widget class="QComboBox" name="opTipoMuestra">
       <item>
        <property name="text">
         <string>TODOS</string>
@@ -419,6 +414,25 @@
      </widget>
     </item>
    </layout>
+  </widget>
+  <widget class="QPushButton" name="importarCSV">
+   <property name="geometry">
+    <rect>
+     <x>920</x>
+     <y>150</y>
+     <width>141</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>URW Gothic</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>IMPORTAR CSV</string>
+   </property>
   </widget>
  </widget>
  <resources/>

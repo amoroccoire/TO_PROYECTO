@@ -15,6 +15,9 @@ public:
     explicit WindowUpload(QWidget *parent = nullptr);
     ~WindowUpload();
 
+signals:
+    void onSuccessUploadFile();
+
 private slots:
 
     void on_botonSubir_clicked();

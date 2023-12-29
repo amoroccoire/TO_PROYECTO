@@ -10,6 +10,10 @@ CONFIG += c++17
 
 SOURCES += \
     back/modulos/handlerFile/infraestructure/JsonFileRepository.cpp \
+    back/modulos/search/domain/pruebacovid.cpp \
+    back/modulos/upload/avltree.cpp \
+    back/modulos/upload/avltreeworker.cpp \
+    back/modulos/upload/nodeavl.cpp \
     back/modulos/user/application/containuser.cpp \
     back/modulos/user/application/createuser.cpp \
     back/modulos/user/application/verifyuser.cpp \
@@ -27,6 +31,10 @@ SOURCES += \
 HEADERS += \
     back/modulos/handlerFile/domain/FileRepository.h \
     back/modulos/handlerFile/domain/JsonFileRepository.h \
+    back/modulos/search/domain/pruebacovid.h \
+    back/modulos/upload/avltree.h \
+    back/modulos/upload/avltreeworker.h \
+    back/modulos/upload/nodeavl.h \
     back/modulos/user/application/containuser.h \
     back/modulos/user/application/createuser.h \
     back/modulos/user/application/verifyuser.h \

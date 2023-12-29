@@ -21,8 +21,10 @@ void WindowUpload::on_botonSubir_clicked() {
     QString filePath = QFileDialog::getOpenFileName(nullptr, "Seleccionar archivo", QDir::homePath(), "Archivos (*.txt *.csv);;Todos los archivos (*.*)");
     if (!filePath.isEmpty()) {
         QString destino = QDir::currentPath() + "/../TO_PROYECTO/back/BASE_DATOS/" + QFileInfo(filePath).fileName();
-        if (QFile::copy(filePath, destino))
+        if (QFile::copy(filePath, destino)){
             qDebug() << "Archivo copiado con éxito a:" << destino;
+            emit onSuccessUploadFile();
+        }
         else
             qDebug() << "Error al copiar el archivo.";
     }
