@@ -10,6 +10,9 @@ login::login(QWidget *parent)
     setWindowTitle("Formulario");
     ui->label4->setVisible(false);
     ui->label5->setVisible(false);
+
+    //Para ocultar el texto de la contraseña
+    ui->password->setEchoMode(QLineEdit::Password);
 }
 
 login::~login()
@@ -20,7 +23,7 @@ login::~login()
 void login::on_btn1_clicked()
 {
     QString nombre = ui->username->toPlainText();
-    QString contrasena = ui->password->toPlainText();
+    QString contrasena = ui->password->text();
 
     FileHandler fileHandler("register.csv");
 
