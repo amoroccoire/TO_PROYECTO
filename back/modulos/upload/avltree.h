@@ -4,6 +4,7 @@
 #include "nodeavl.h"
 #include <QString>
 #include "../../../shared/DoubleLinkedList/doublelinkedlist.cpp";
+#include <vector>
 #pragma once
 
 class AVLTree {
@@ -13,7 +14,7 @@ public:
     void insert(PruebaCovid*);
     PruebaCovid* search(PruebaCovid*);
 
-    DoubleLinkedList<QString, PruebaCovid*>* inorder();
+    std::vector<PruebaCovid*> inorder();
 
 private:
     NodeAVL* root;
@@ -24,7 +25,7 @@ private:
     int getBalance(NodeAVL*);
     NodeAVL* search(NodeAVL*, PruebaCovid*);
 
-    void inorderHelper(NodeAVL*, DoubleLinkedList<QString, PruebaCovid*>*);
+    void inorderHelper(NodeAVL*, std::vector<PruebaCovid*>&);
 };
 
 #endif // AVLTREE_H

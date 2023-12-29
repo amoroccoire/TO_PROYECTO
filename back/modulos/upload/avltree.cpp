@@ -12,19 +12,19 @@ void AVLTree::insert(PruebaCovid *prueba) {
         root = insert(root, prueba);
 }
 
-void AVLTree::inorderHelper(NodeAVL* node, DoubleLinkedList<QString, PruebaCovid*>* result) {
+void AVLTree::inorderHelper(NodeAVL* node, std::vector<PruebaCovid*>& result) {
     if (node != nullptr) {
         inorderHelper(node->getLeft(), result);
-        if(node->getKey() != nullptr)
-            result->insertLast(node->getKey()->getUuid(), node->getKey());
+        result.push_back(node->getKey());
         inorderHelper(node->getRight(), result);
     }
 }
 
-DoubleLinkedList<QString, PruebaCovid*>* AVLTree::inorder() {
-    DoubleLinkedList<QString, PruebaCovid*>* lista = new DoubleLinkedList<QString, PruebaCovid*>();
-    inorderHelper(root, lista);
-    return lista;
+std::vector<PruebaCovid*> AVLTree::inorder() {
+    //DoubleLinkedList<QString, PruebaCovid*>* lista = new DoubleLinkedList<QString, PruebaCovid*>();
+    std::vector<PruebaCovid*> result;
+    inorderHelper(root, result);
+    return result;
 }
 
 PruebaCovid* AVLTree::search(PruebaCovid *prueba) {
