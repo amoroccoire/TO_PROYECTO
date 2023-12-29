@@ -5,6 +5,7 @@
 #include "../../back/modulos/upload/avltreeworker.h"
 #include "../upload/windowupload.h"
 #include "ui_windowupload.h"
+#include <vector>
 
 namespace Ui {
 class windowSearch;
@@ -30,13 +31,14 @@ private slots:
 
     void inicialitation(AVLTreeWorker* worker);
 
+    void on_opSexo_currentIndexChanged(int index);
+
+    void on_opTipoMuestra_2_currentIndexChanged(int index);
+
 private:
     Ui::windowSearch *ui;
     WindowUpload* windowUpload;
-    AVLTreeWorker* worker1;
-    AVLTreeWorker* worker2;
-    AVLTreeWorker* worker3;
-    AVLTreeWorker* worker4;
+    std::vector<AVLTreeWorker*> workers;
 
     int lotes;
     int currentRange;

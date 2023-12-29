@@ -17,7 +17,7 @@ void NodeAVL::setLeft(NodeAVL *nodo) {
 }
 
 void NodeAVL::setRight(NodeAVL *nodo) {
-    this->left = nodo;
+    this->right = nodo;
 }
 
 void NodeAVL::setKey(PruebaCovid *prueba) {

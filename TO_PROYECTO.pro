@@ -10,6 +10,11 @@ CONFIG += c++17
 
 SOURCES += \
     back/modulos/handlerFile/infraestructure/JsonFileRepository.cpp \
+    back/modulos/search/application/agecriteria.cpp \
+    back/modulos/search/application/andcriteria.cpp \
+    back/modulos/search/application/orcriteria.cpp \
+    back/modulos/search/application/resultcriteria.cpp \
+    back/modulos/search/application/sexcriteria.cpp \
     back/modulos/search/domain/pruebacovid.cpp \
     back/modulos/upload/avltree.cpp \
     back/modulos/upload/avltreeworker.cpp \
@@ -31,6 +36,12 @@ SOURCES += \
 HEADERS += \
     back/modulos/handlerFile/domain/FileRepository.h \
     back/modulos/handlerFile/domain/JsonFileRepository.h \
+    back/modulos/search/application/DynamiCriteria.h \
+    back/modulos/search/application/agecriteria.h \
+    back/modulos/search/application/andcriteria.h \
+    back/modulos/search/application/orcriteria.h \
+    back/modulos/search/application/resultcriteria.h \
+    back/modulos/search/application/sexcriteria.h \
     back/modulos/search/domain/pruebacovid.h \
     back/modulos/upload/avltree.h \
     back/modulos/upload/avltreeworker.h \

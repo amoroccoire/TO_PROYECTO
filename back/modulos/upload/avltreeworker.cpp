@@ -15,16 +15,12 @@ AVLTreeWorker::AVLTreeWorker(const QString& filename, long startLine, long numLi
 
 void AVLTreeWorker::process() {
     QFile file(filename);
-    qDebug() << "antes de apertura";
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
         return;
 
-    qDebug() << "Si pasa apertura";
     QTextStream in(&file);
     QString line;
     long currentLine = 0;
-
-    qDebug() << startLine << " - " << numLines << "- " << currentLine;
 
     while (currentLine < startLine && !in.atEnd()) {
         qDebug() << currentLine;
