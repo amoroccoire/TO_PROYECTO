@@ -2,6 +2,9 @@
 #define AVLTREE_H
 
 #include "nodeavl.h"
+#include <QString>
+#include "../../../shared/DoubleLinkedList/doublelinkedlist.cpp";
+#pragma once
 
 class AVLTree {
 public:
@@ -9,6 +12,8 @@ public:
 
     void insert(PruebaCovid*);
     PruebaCovid* search(PruebaCovid*);
+
+    DoubleLinkedList<QString, PruebaCovid*>* inorder();
 
 private:
     NodeAVL* root;
@@ -18,6 +23,8 @@ private:
     int height(NodeAVL*);
     int getBalance(NodeAVL*);
     NodeAVL* search(NodeAVL*, PruebaCovid*);
+
+    void inorderHelper(NodeAVL*, DoubleLinkedList<QString, PruebaCovid*>*);
 };
 
 #endif // AVLTREE_H

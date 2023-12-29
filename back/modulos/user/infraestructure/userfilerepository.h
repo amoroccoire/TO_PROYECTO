@@ -3,9 +3,8 @@
 
 #include "../domain/IUserRepository.h"
 #include "../../handlerFile/domain/FileRepository.h"
-#include "../../../../shared/DoubleLinkedList/doublelinkedlist.cpp"
-#include "../../../../shared/DoubleLinkedList/nododoublelist.cpp"
 #pragma once
+#include "../../../../shared/DoubleLinkedList/doublelinkedlist.cpp"
 
 class UserFileRepository : public IUserRepository{
 public:

@@ -1,16 +1,37 @@
+#pragma once
+#include <QString>
 #include "avltree.h"
+#include <algorithm>
 
 AVLTree::AVLTree() {
     root = nullptr;
 }
 
 void AVLTree::insert(PruebaCovid *prueba) {
-    root = insert(root, prueba);
+    if(prueba != nullptr)
+        root = insert(root, prueba);
 }
 
+void AVLTree::inorderHelper(NodeAVL* node, DoubleLinkedList<QString, PruebaCovid*>* result) {
+    if (node != nullptr) {
+        inorderHelper(node->getLeft(), result);
+        if(node->getKey() != nullptr)
+            result->insertLast(node->getKey()->getUuid(), node->getKey());
+        inorderHelper(node->getRight(), result);
+    }
+}
+
+DoubleLinkedList<QString, PruebaCovid*>* AVLTree::inorder() {
+    DoubleLinkedList<QString, PruebaCovid*>* lista = new DoubleLinkedList<QString, PruebaCovid*>();
+    inorderHelper(root, lista);
+    return lista;
+}
 
 PruebaCovid* AVLTree::search(PruebaCovid *prueba) {
-    return search(root, prueba);
+    NodeAVL* result = search(root, prueba);
+    if (result != nullptr)
+        return result->getKey();
+    return nullptr;
 }
 
 NodeAVL* AVLTree::insert(NodeAVL *node, PruebaCovid *prueba) {
@@ -26,21 +47,24 @@ NodeAVL* AVLTree::insert(NodeAVL *node, PruebaCovid *prueba) {
         return node;
     }
 
-    node->getHeight() = 1 + std::max(height(node->getLeft()), height(node->getRight()));
+    node->setHeight(1 + std::max(height(node->getLeft()), height(node->getRight())));
 
     int balance = getBalance(node);
-    if (balance > 1 && prueba->getUuid() < node->getLeft()->getKey()->getUuid()) {
+    if (balance > 1 && node->getLeft() != nullptr && prueba->getUuid() < node->getLeft()->getKey()->getUuid()) {
         return rightRotate(node);
     }
-    if (balance < -1 && prueba->getUuid() > node->getRight()->getKey()->getUuid()) {
+
+    if (balance < -1 && node->getRight() != nullptr && prueba->getUuid() > node->getRight()->getKey()->getUuid()) {
         return leftRotate(node);
     }
-    if (balance > 1 && prueba->getUuid() > node->getLeft()->getKey()->getUuid()) {
+
+    if (balance > 1 && node->getLeft() != nullptr && prueba->getUuid() > node->getLeft()->getKey()->getUuid()) {
         node->setLeft(leftRotate(node->getLeft()));
         return rightRotate(node);
     }
-    if (balance < -1 && prueba->getUuid() < node->getRight()->getKey()->getUuid()) {
-        node->setRight(rightRotate(node->getRight());
+
+    if (balance < -1 && node->getRight() != nullptr && prueba->getUuid() < node->getRight()->getKey()->getUuid()) {
+        node->setRight(rightRotate(node->getRight()));
         return leftRotate(node);
     }
 
@@ -48,6 +72,11 @@ NodeAVL* AVLTree::insert(NodeAVL *node, PruebaCovid *prueba) {
 }
 
 NodeAVL* AVLTree::rightRotate(NodeAVL *y) {
+
+    if (y == nullptr || y->getLeft() == nullptr) {
+        return y; // No se puede realizar la rotación
+    }
+
     NodeAVL* x = y->getLeft();
     NodeAVL* T2 = x->getRight();
 
@@ -61,6 +90,10 @@ NodeAVL* AVLTree::rightRotate(NodeAVL *y) {
 }
 
 NodeAVL* AVLTree::leftRotate(NodeAVL *x) {
+    if (x == nullptr || x->getRight() == nullptr) {
+        return x; // No se puede realizar la rotación
+    }
+
     NodeAVL* y = x->getRight();
     NodeAVL* T2 = y->getLeft();
 
@@ -98,3 +131,5 @@ NodeAVL* AVLTree::search(NodeAVL* root, PruebaCovid* key) {
 
     return search(root->getLeft(), key);
 }
+
+

@@ -1,7 +1,9 @@
 #ifndef NODODOUBLELIST_H
 #define NODODOUBLELIST_H
 
-template <typename T, typename V>
+#pragma once
+
+template <class T, class V>
 class NodoDoubleList {
 public:
     NodoDoubleList();

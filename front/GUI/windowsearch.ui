@@ -89,7 +89,7 @@
      <x>20</x>
      <y>220</y>
      <width>1261</width>
-     <height>471</height>
+     <height>511</height>
     </rect>
    </property>
    <property name="editTriggers">
@@ -216,8 +216,8 @@
   <widget class="QPushButton" name="exportarCSV">
    <property name="geometry">
     <rect>
-     <x>1090</x>
-     <y>150</y>
+     <x>1130</x>
+     <y>60</y>
      <width>141</width>
      <height>41</height>
     </rect>
@@ -418,8 +418,8 @@
   <widget class="QPushButton" name="importarCSV">
    <property name="geometry">
     <rect>
-     <x>920</x>
-     <y>150</y>
+     <x>960</x>
+     <y>60</y>
      <width>141</width>
      <height>41</height>
     </rect>
@@ -432,6 +432,79 @@
    </property>
    <property name="text">
     <string>IMPORTAR CSV</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="horizontalLayoutWidget_4">
+   <property name="geometry">
+    <rect>
+     <x>560</x>
+     <y>150</y>
+     <width>182</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_4">
+    <item>
+     <widget class="QLabel" name="labelTMuestra_2">
+      <property name="font">
+       <font>
+        <family>URW Gothic</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>RESULTADO</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QComboBox" name="opTipoMuestra_2">
+      <item>
+       <property name="text">
+        <string>TODOS</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>POSITIVO</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>NEGATIVO</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QPushButton" name="next">
+   <property name="geometry">
+    <rect>
+     <x>1220</x>
+     <y>160</y>
+     <width>51</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>NEXT</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="prev">
+   <property name="geometry">
+    <rect>
+     <x>1150</x>
+     <y>160</y>
+     <width>51</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>PREV</string>
    </property>
   </widget>
  </widget>

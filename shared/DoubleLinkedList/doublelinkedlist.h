@@ -2,9 +2,8 @@
 #define DOUBLELINKEDLIST_H
 
 #include "nododoublelist.h"
-#include "../BST/bst.h"
 
-template <typename T, typename V>
+template <class T, class V>
 class DoubleLinkedList {
 public:
     DoubleLinkedList();
@@ -20,6 +19,9 @@ public:
     NodoDoubleList<T, V>* search(T dato);
 
     int getSize();
+    NodoDoubleList<T, V>* getHead();
+    NodoDoubleList<T, V>* getLast();
+
 private:
     NodoDoubleList<T, V>* head;
     NodoDoubleList<T, V>* last;

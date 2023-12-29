@@ -1,5 +1,8 @@
-#include "doublelinkedlist.h"
+//#include "doublelinkedlist.h"
 #include "cmath"
+#include "doublelinkedlist.h"
+#include <QDebug>
+#pragma once
 
 template <class T, class V>
 DoubleLinkedList<T, V>::DoubleLinkedList() {
@@ -8,11 +11,12 @@ DoubleLinkedList<T, V>::DoubleLinkedList() {
     contador = 0;
 }
 
+
 template <class T, class V>
 void DoubleLinkedList<T, V>::insertForward(T key, V value) {
     NodoDoubleList<T, V>* newNodo = new NodoDoubleList<T, V>(key, value);
 
-    if(head == nullptr){
+    if(!head){
         head = newNodo;
         last = newNodo;
     }
@@ -22,18 +26,21 @@ void DoubleLinkedList<T, V>::insertForward(T key, V value) {
         head = newNodo;
     }
     contador++;
-
 }
 
+#include "../../shared/DoubleLinkedList/nododoublelist.cpp"
 template <class T, class V>
 void DoubleLinkedList<T, V>::insertLast(T key, V value) {
+    qDebug() << "ANTES DE CREAR";
     NodoDoubleList<T, V>* newNodo = new NodoDoubleList<T, V>(key, value);
-
-    if(last == nullptr){
+    qDebug() << "DESPUES DE CREAR";
+    if(!last){
         head = newNodo;
         last = newNodo;
+        qDebug() << "EN ROOT";
     }
     else {
+        qDebug() << "EN otro nodo";
         last->setNext(newNodo);
         newNodo->setPrev(last);
         last = newNodo;
@@ -125,4 +132,14 @@ NodoDoubleList<T, V>* DoubleLinkedList<T, V>::search(T key) {
 template <class T, class V>
 int DoubleLinkedList<T, V>::getSize() {
     return contador;
+}
+
+template <class T, class V>
+NodoDoubleList<T, V>* DoubleLinkedList<T, V>::getHead() {
+    return this->head;
+}
+
+template <class T, class V>
+NodoDoubleList<T, V>* DoubleLinkedList<T, V>::getLast() {
+    return this->last;
 }

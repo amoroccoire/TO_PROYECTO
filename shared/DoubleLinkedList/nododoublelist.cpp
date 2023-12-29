@@ -1,16 +1,15 @@
 #include "nododoublelist.h"
 
+template <class T, class V>
+NodoDoubleList<T, V>::NodoDoubleList(T key, V value) {
+    this->key = key;
+    this->value = value;
+}
 
 template <class T, class V>
 NodoDoubleList<T, V>::NodoDoubleList() {
     key = nullptr;
     value = nullptr;
-}
-
-template <class T, class V>
-NodoDoubleList<T, V>::NodoDoubleList(T key, V value) {
-    this->key = key;
-    this->value = value;
 }
 
 template <class T, class V>
@@ -38,6 +37,11 @@ V NodoDoubleList<T, V>::getValue(T key){
     if (this->key == key)
         return this->value;
     return nullptr;
+}
+
+template <class T, class V>
+T NodoDoubleList<T, V>::getKey(){
+    return this->key;
 }
 
 template <class T, class V>
