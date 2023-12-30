@@ -22,6 +22,8 @@ private slots:
 
     void on_btn2_clicked();
 
+    void cerrarVentana();
+
 private:
     Ui::login *ui;
 };

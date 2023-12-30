@@ -1,4 +1,7 @@
-#include "login.h"
+#include "mainwindow.h"
+#include "./front/search/windowsearch.h"
+#include "./front/upload/windowupload.h"
+#include "./login/login.h"
 
 #include <QApplication>
 

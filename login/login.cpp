@@ -1,6 +1,8 @@
 #include "login.h"
 #include "./ui_login.h"
 #include "filehandler.h"
+#include "./front/search/windowsearch.h"
+#include <QTimer>
 
 login::login(QWidget *parent)
     : QWidget(parent),
@@ -29,9 +31,14 @@ void login::on_btn1_clicked()
 
     //Usando fileHanlder para verificar el ingreso
     if (fileHandler.userExists(nombre, contrasena)) {
+        qDebug() << "Usuario válido. Abriendo ventana windowSearch...";
         ui->label5->setVisible(true);
         ui->label4->setVisible(false);
+
+        QTimer::singleShot(3000, this, &login::cerrarVentana);
+
     } else {
+        qDebug() << "Usuario no válido";
         ui->label5->setVisible(false);
         ui->label4->setVisible(true);
     }
@@ -44,5 +51,14 @@ void login::on_btn2_clicked()
     //Creando una instancia form
     Form *formWindow = new Form();
     formWindow->show();
+}
+
+void login::cerrarVentana()
+{
+    close();
+
+    //Para abrir la ventana del programa principal
+    windowSearch *searchWindow = new windowSearch();
+    searchWindow->show();
 }
 
