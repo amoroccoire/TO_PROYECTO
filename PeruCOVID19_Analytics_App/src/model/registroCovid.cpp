@@ -28,12 +28,53 @@ void RegistroCovid::setFechaCorte(const std::string& fechaCompacta) {
         std::time_t time_stamp = std::mktime(&tm_date);
         std::string timeString = std::ctime(&time_stamp);
         fechaCorte = timeString.substr(0, timeString.find('\n'));
-;
+        ;
     } else {
         // Manejar el caso de una cadena no válida (puedes lanzar una excepción, imprimir un mensaje, etc.)
         // Por ejemplo:
         throw std::invalid_argument("La cadena de fecha no tiene el formato esperado.");
     }
 };
+
+// Implementación del constructor de copia
+RegistroCovid::RegistroCovid(const RegistroCovid& otro) {
+    // Copiar todos los campos
+    fechaCorte = otro.fechaCorte;
+    uuid = otro.uuid;
+    fechaMuestra = otro.fechaMuestra;
+    edad = otro.edad;
+    esFemenino = otro.esFemenino;
+    institucion = otro.institucion;
+    ubigeoPaciente = otro.ubigeoPaciente;
+    departamentoPaciente = otro.departamentoPaciente;
+    provinciaPaciente = otro.provinciaPaciente;
+    distritoPaciente = otro.distritoPaciente;
+    departamentoMuestra = otro.departamentoMuestra;
+    provinciaMuestra = otro.provinciaMuestra;
+    distritoMuestra = otro.distritoMuestra;
+    tipoMuestra = otro.tipoMuestra;
+    esPositivo = otro.esPositivo;
+}
+
+// Implementación de la función imprimir
+void RegistroCovid::imprimir() const {
+    std::cout << "Fecha de Corte: " << fechaCorte << std::endl;
+    std::cout << "UUID: " << uuid << std::endl;
+    std::cout << "Fecha de Muestra: " << fechaMuestra << std::endl;
+    std::cout << "Edad: " << edad << std::endl;
+    std::cout << "Género: " << (esFemenino ? "Femenino" : "Masculino") << std::endl;
+            std::cout << "Institución: " << institucion << std::endl;
+                     std::cout << "Ubigeo del Paciente: " << ubigeoPaciente << std::endl;
+    std::cout << "Departamento del Paciente: " << departamentoPaciente << std::endl;
+    std::cout << "Provincia del Paciente: " << provinciaPaciente << std::endl;
+    std::cout << "Distrito del Paciente: " << distritoPaciente << std::endl;
+    std::cout << "Departamento de la Muestra: " << departamentoMuestra << std::endl;
+    std::cout << "Provincia de la Muestra: " << provinciaMuestra << std::endl;
+    std::cout << "Distrito de la Muestra: " << distritoMuestra << std::endl;
+    std::cout << "Tipo de Muestra: " << tipoMuestra << std::endl;
+    std::cout << "Resultado: " << (esPositivo ? "Positivo" : "Negativo") << std::endl;
+
+    // Agrega más líneas según sea necesario para otros campos...
+}
 
 

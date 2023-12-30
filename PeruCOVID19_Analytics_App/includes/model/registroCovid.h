@@ -3,6 +3,8 @@
 #define REGISTRO_COVID_H
 
 #include <string>
+#include <ostream>
+
 
 class RegistroCovid {
 public:
@@ -32,6 +34,15 @@ public:
     bool operator>(const RegistroCovid& otro) const {
         // Comparación lexicográfica inversa de las fechas de corte
         return fechaCorte.compare(otro.fechaCorte) > 0;
+    }
+
+    RegistroCovid(const RegistroCovid& otro);
+    void imprimir() const;
+    friend std::ostream& operator<<(std::ostream& os, const RegistroCovid& registro) {
+        os << "Fecha de Corte: " << registro.fechaCorte << ", ";
+        os << "UUID: " << registro.uuid << ", ";
+        // Agregar otros campos...
+        return os;
     }
 
     // Constructor
@@ -76,6 +87,7 @@ public:
     void setFechaCorte(const std::string& fechaCompacta);
 
     // Otros métodos...
+
 };
 
 #endif // REGISTRO_COVID_H

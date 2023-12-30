@@ -30,7 +30,10 @@ void CSVHandler::procesarArchivo(const std::string& rutaArchivo, AVLTree<Registr
         // Asignar otros campos...
 
         arbol.insert(registro);
+//        arbol.printInOrder();
     }
 
     archivo.close();
+    std::cout << "Información de registros en orden:" << std::endl;
+    arbol.printInOrder();
 }

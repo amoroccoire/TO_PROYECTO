@@ -9,8 +9,17 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+#set(CMAKE_PREFIX_PATH "RUTA_AL_DIRECTORIO_DE_QT;${CMAKE_PREFIX_PATH}")
+# set(CMAKE_PREFIX_PATH "C:/Qt")
+# set(QT_DIR "C:/Qt")
+
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
+#find_package(Qt6 COMPONENTS Widgets Charts REQUIRED)
+#find_package(Qt5 COMPONENTS Widgets Charts REQUIRED)
+# include other modules above
+#find_package(QT NAMES Qt6 COMPONENTS Widgets Charts REQUIRED)
+find_package(Qt6 REQUIRED COMPONENTS Widgets Charts)
 
 set(PROJECT_SOURCES
         main.cpp
@@ -19,24 +28,8 @@ set(PROJECT_SOURCES
         ui/GUI/mainwindow.ui
         src/fileHandling/CSVHandler.cpp
         src/model/RegistroCovid.cpp
+
 )
-#set(GUI_SOURCES
-#    src/GUI/FormularioAutenticacion.cpp
-
-#)
-
-#set(GUI_HEADERS
-#    include/GUI/FormularioAutenticacion.h
-#)
-
-#set(GUI_UI
-#    ui/FormularioAutenticacion.ui
-#)
-
-# adicionamos la posibilidad de pruebas
-# Agrega estas líneas para incluir y configurar las pruebas
-#enable_testing()
-#add_subdirectory(tests)
 
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -44,8 +37,6 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
 
-        includes/GUI/FormularioAutenticacion.H
-        ui/FormularioAutenticacion.ui
         data/exceldeprueba.csv
         src/dataStructures/avl_tree.cpp
         includes/dataStructures/avl_tree.h
@@ -55,6 +46,15 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         includes/fileHandling/CSVHandler.h
         src/model/registroCovid.cpp
         includes/model/registroCovid.h
+        src/fileHandling/fileMainPrueba.cpp
+        includes/dataStructures/pila.h
+        src/dataStructures/pila.cpp
+        src/dataStructures/pila_test.cpp
+        src/GUI/estadisticas/porDepartamento/formestadisticasdepartamento.h src/GUI/estadisticas/porDepartamento/formestadisticasdepartamento.cpp src/GUI/estadisticas/porDepartamento/formestadisticasdepartamento.ui
+        src/GUI/estadisticas/porSexo/formestadisticassexo.h src/GUI/estadisticas/porSexo/formestadisticassexo.cpp src/GUI/estadisticas/porSexo/formestadisticassexo.ui
+        src/GUI/estadisticas/porResultado/formestadisticaresultado.h src/GUI/estadisticas/porResultado/formestadisticaresultado.cpp src/GUI/estadisticas/porResultado/formestadisticaresultado.ui
+
+
 
 #        src/dataStructures/test_avl_tree.cpp
 
@@ -77,7 +77,14 @@ else()
     endif()
 endif()
 
+
 target_link_libraries(PeruCOVID19_Analytics_App PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(PeruCOVID19_Analytics_App PRIVATE Qt6::Widgets Qt6::Charts)
+# target_link_libraries(PeruCOVID19_Analytics_App PUBLIC Qt::QtCharts)
+
+#target_link_libraries(PeruCOVID19_Analytics_App PRIVATE Qt6::Widgets Qt6::Charts)
+
+#target_link_libraries(PeruCOVID19_Analytics_App PRIVATE Qt6::Widgets Qt5::Charts )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an
