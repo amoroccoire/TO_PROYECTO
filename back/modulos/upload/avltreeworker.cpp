@@ -32,7 +32,7 @@ void AVLTreeWorker::process() {
     while (currentLine < startLine + numLines && !in.atEnd()) {
         line = in.readLine();
         qDebug() << line;
-        QStringList list = line.split("\t");
+        QStringList list = line.split(";");
         qDebug() << "ANTES DE INSERTADO 0000";
         if (list[1] != "NULL") {
             qDebug() << "ANTES DE INSERTADO";

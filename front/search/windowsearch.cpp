@@ -9,6 +9,10 @@
 #include "../../back/modulos/search/application/sexcriteria.h"
 #include "../../back/modulos/search/application/resultcriteria.h"
 
+#include <QFileDialog>
+#include <QTextDocument>
+#include <QPrinter>
+
 windowSearch::windowSearch(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::windowSearch)
@@ -351,7 +355,42 @@ void windowSearch::on_opTipoMuestra_2_currentIndexChanged(int index) {
 
 
 void windowSearch::on_exportarCSV_clicked() {
-    //Export* paraExportar = new Export();
-    //paraExportar->exportToPdf(ui->tabla);
+    // QFileDialog para seleccionar la ubicación
+    QString filePath = QFileDialog::getSaveFileName(this, tr("Guardar CSV"), "", tr("Archivos CSV (.csv);;Todos los archivos (.*)"));
+    if (filePath.isEmpty()) {
+        return;
+    }
+
+    //Crear un objeto QFile y abrirlo
+    QFile file(filePath);
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        qDebug() << "Error al abrir el archivo CSV para escritura";
+        return;
+    }
+
+    //Crear un objeto QTextStream
+    QTextStream out(&file);
+
+    int rows = ui->tabla->rowCount();
+    int columns = ui->tabla->columnCount();
+
+    // Agregar las cabeceras
+    for (int col = 0; col < columns; ++col) {
+        QString headerText = ui->tabla->horizontalHeaderItem(col)->text();
+        out << headerText << ";";
+    }
+    out << "\n";
+
+    for (int row = 0; row < rows; ++row) {
+        for (int col = 0; col < columns; ++col) {
+            QString cellText = ui->tabla->item(row, col)->text();
+            out << cellText << ";";
+        }
+        out << "\n";
+    }
+
+    file.close();
+
+    qDebug() << "Exportado a CSV";
 }
 
