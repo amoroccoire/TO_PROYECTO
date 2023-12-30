@@ -20,8 +20,8 @@ Form::~Form()
 
 void Form::on_btn1_clicked()
 {
-    QString nombre = ui->username->toPlainText();
-    QString contrasena = ui->password->toPlainText();
+    QString nombre = ui->username->text();
+    QString contrasena = ui->password->text();
 
     //Se crea instancia de fileHandler
     FileHandler fileHandler("register.csv");
