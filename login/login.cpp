@@ -24,7 +24,7 @@ login::~login()
 
 void login::on_btn1_clicked()
 {
-    QString nombre = ui->username->toPlainText();
+    QString nombre = ui->username->text();
     QString contrasena = ui->password->text();
 
     FileHandler fileHandler("register.csv");
@@ -35,7 +35,7 @@ void login::on_btn1_clicked()
         ui->label5->setVisible(true);
         ui->label4->setVisible(false);
 
-        QTimer::singleShot(3000, this, &login::cerrarVentana);
+        QTimer::singleShot(2000, this, &login::cerrarVentana);
 
     } else {
         qDebug() << "Usuario no válido";
