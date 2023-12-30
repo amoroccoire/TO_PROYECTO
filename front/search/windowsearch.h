@@ -35,6 +35,8 @@ private slots:
 
     void on_opTipoMuestra_2_currentIndexChanged(int index);
 
+    void on_exportarCSV_clicked();
+
 private:
     Ui::windowSearch *ui;
     WindowUpload* windowUpload;

@@ -349,3 +349,9 @@ void windowSearch::on_opTipoMuestra_2_currentIndexChanged(int index) {
     }
 }
 
+
+void windowSearch::on_exportarCSV_clicked() {
+    //Export* paraExportar = new Export();
+    //paraExportar->exportToPdf(ui->tabla);
+}
+
