@@ -53,6 +53,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         src/GUI/estadisticas/porDepartamento/formestadisticasdepartamento.h src/GUI/estadisticas/porDepartamento/formestadisticasdepartamento.cpp src/GUI/estadisticas/porDepartamento/formestadisticasdepartamento.ui
         src/GUI/estadisticas/porSexo/formestadisticassexo.h src/GUI/estadisticas/porSexo/formestadisticassexo.cpp src/GUI/estadisticas/porSexo/formestadisticassexo.ui
         src/GUI/estadisticas/porResultado/formestadisticaresultado.h src/GUI/estadisticas/porResultado/formestadisticaresultado.cpp src/GUI/estadisticas/porResultado/formestadisticaresultado.ui
+        src/GUI/estadisticas/porTipoMuestra/formestadisticatipomuestra.h src/GUI/estadisticas/porTipoMuestra/formestadisticatipomuestra.cpp src/GUI/estadisticas/porTipoMuestra/formestadisticatipomuestra.ui
 
 
 

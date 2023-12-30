@@ -3,6 +3,7 @@
 #include "../../src/GUI/estadisticas/porDepartamento/formestadisticasdepartamento.h"
 #include "../../src/GUI/estadisticas/porSexo/formestadisticassexo.h"
 #include "../../src/GUI/estadisticas/porResultado/formestadisticaresultado.h"
+#include "../../src/GUI/estadisticas/porTipoMuestra/formestadisticatipomuestra.h"
 
 // En el encabezado de tu clase MainWindow
 
@@ -39,5 +40,12 @@ void MainWindow::on_pushButton_3_clicked()
 {
     FormEstadisticaResultado *formEstadisticaResultado = new FormEstadisticaResultado(nullptr);
     formEstadisticaResultado->show();
+}
+
+
+void MainWindow::on_pushButton_4_clicked()
+{
+    FormEstadisticaTipoMuestra *formEstadisticaMuestra = new FormEstadisticaTipoMuestra(nullptr);
+    formEstadisticaMuestra->show();
 }
 
